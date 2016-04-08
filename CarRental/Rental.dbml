@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MyScheduler" Class="RentalDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|MyScheduler.mdf;Integrated Security=True;User Instance=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="MySchedulerConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Type" Member="Types">
+    <Type Name="Type">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="title" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="Type_Car" Member="Cars" ThisKey="Id" OtherKey="TypeId" Type="Car" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Order]" Member="Orders">
+    <Type Name="Order">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="text" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="start_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="end_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="pick_location" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="drop_location" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="car_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="car_number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Car_Order" Member="Car" ThisKey="car_id" OtherKey="id" Type="Car" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Car" Member="Cars">
+    <Type Name="Car">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
+      <Column Name="TypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Photo" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="Brand" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Car_Order" Member="Orders" ThisKey="id" OtherKey="car_id" Type="Order" />
+      <Association Name="Type_Car" Member="Type" ThisKey="TypeId" OtherKey="Id" Type="Type" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

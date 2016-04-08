@@ -1,0 +1,27 @@
+/*
+@license
+dhtmlxScheduler.Net v.3.3.16 Professional Evaluation
+
+This software is covered by DHTMLX Evaluation License. Contact sales@dhtmlx.com to get Commercial or Enterprise license. Usage without proper license is prohibited.
+
+(c) Dinamenta, UAB.
+*/
+Scheduler.plugin(function(t){t.initCustomLightbox=function(e,a,n){function i(){if(!a._lightbox){var t=a._getLightbox(),n=t.childNodes[1];t.className.indexOf("dhx_cal_light_wide")>=0?n.lastChild.firstChild.style.display="none":n.firstChild.style.display="none",n.style.height=n.style.height.replace("px","")-25+"px",t.style.height=t.style.height.replace("px","")-50+"px",t.style.width=+e.width+10+"px",n.style.width=e.width+"px"}return a._lightbox}var d={initial:0,load_data:1,save_data:2},o=n+"_here_iframe_";
+
+a.config.buttons_left=[],a.config.buttons_right=[],a._getLightbox=a.getLightbox,a.config.lightbox.sections=[{type:"frame",name:"box"}],a._cust_string_to_date=function(t){return a.templates.xml_date(t)},a._cust_date_to_str=function(t){return a.templates.xml_format(t)},a._deep_copy=function(e){if("object"==typeof e){if("[object Date]"==Object.prototype.toString.call(e))var a=new Date(e);else if("[object Array]"==Object.prototype.toString.call(e))var a=new Array;else var a=new Object;for(var n in e)a[n]=t._deep_copy(e[n]);
+
+}else var a=e;return a},"external"==e.type?(a.attachEvent("onBeforeLightbox",function(){return a._custom_box_stage=0,!0}),a.getLightbox=i,a._setLightboxValues=function(t,n){var t=document.getElementById(o);try{switch(a._custom_box_stage){case d.initial:if(!a.dataProcessor){var i=a.dataProcessor=new DataProcessor;i.init(a)}var i=a.dataProcessor||i,_=i._getRowData(n),r=-1===(e.view||"").indexOf("?")?"?":"&",s="<form action='/"+e.view+r+"id="+encodeURIComponent(n)+"' method='POST'>";for(var l in _)s+="<input type='hidden' name='"+l+"'/>";
+
+if(s+="</form>",t.Document)var c=t.Document.body;else var c=t.contentDocument.body;c.innerHTML=s;var h=0;for(var l in _)c.firstChild.childNodes[h++].value=_[l];c.firstChild.submit();break;case d.load_data:if(!t.contentWindow.lightbox){{t.contentWindow}t.contentWindow.lightbox={close:function(){a._remove_customBox()}}}a.callEvent("onLightbox",[n]);break;case d.save_data:if(!t)return;var u=t.contentWindow;if(!u||!u.response_data)return;a._doLAction(u.response_data),a._remove_customBox()}}catch(g){a._remove_customBox(),
+window.console&&console.log(g)}a._custom_box_stage++},a._remove_customBox=function(){a._lightbox?a.endLightbox(!1,a._lightbox):a.endLightbox(!1),a.callEvent("onAfterLightbox",[])},a._doLAction=function(t){try{if(!t)return;var e=t.data;e.start_date&&e.end_date&&(e.start_date=a._cust_string_to_date(t.data.start_date),e.end_date=a._cust_string_to_date(t.data.end_date));var n=t.action;switch(t.action){case"insert":a._loading=!0,a.addEvent(e),a._loading=!1,n="inserted";break;case"update":var i=a.getEvent(t.sid);
+
+for(var d in e)i[d]=e[d];a.event_updated(i),a.updateEvent(t.sid),n="updated";break;case"delete":a.deleteEvent(t.sid,!0),n="deleted"}a.dataProcessor.callEvent("onAfterUpdate",[t.sid,n,t.tid,t])}catch(o){}},a.form_blocks.frame={onload:function(t,e,a){a._setLightboxValues(t,e)},render:function(t){return"<div style='display:inline-block; height:"+e.height+"px'></div>"},set_value:function(t,i,d,_){a._last_id=d.id;var r='<iframe id="'+o+'" frameborder="0" onload="'+n+".form_blocks.frame.onload(this, "+n+"._last_id, "+n+');" src=""';
+
+return(e.width||e.height)&&(r+=" style='"),e.width&&(r+="width:"+e.width+"px;",t.style.width=e.width+"px"),e.height&&(r+="height:"+e.height+"px;",t.style.height=e.height+"px"),(e.width||e.height)&&(r+=" '"),r+="><html></html></iframe>",t.innerHTML=r,e.className&&(t.className=e.className),!0},get_value:function(t,e){return!0},focus:function(t){return!0}}):(a.form_blocks.frame={render:function(t){var a='<iframe  id="'+n+"_here_iframe_\" onload='"+n+"._addLightboxInterface(this)' frameborder='0' src='"+e.view+"'";
+
+return(e.width||e.height)&&(a+=" style='"),e.width&&(a+="width:"+e.width+"px;"),e.height&&(a+="height:"+e.height+"px;"),(e.width||e.height)&&(a+=" '"),a+=" ></iframe>"},set_value:function(t,e,a){if(t.contentWindow&&t.contentWindow.setValues){if(1==t.contentWindow.document.getElementsByTagName("form").length)t.contentWindow.document.getElementsByTagName("form")[0].reset();else{var a=t.contentWindow.getValues();for(var n in a)a[n]="";t.contentWindow.setValues(a)}t.contentWindow.setValues(a)}},get_value:function(t,e){
+return a._deep_copy(t.contentWindow.getValues())},focus:function(t){return!0}},a.getLightbox=i,a._addLightboxInterface=function(t){if(t.contentWindow.lightbox||(t.contentWindow.lightbox={}),t.contentWindow.lightbox.save=function(){var e=a.getEvent(a.getState().lightbox_id),n=t.contentWindow.getValues();for(var i in n)e[i]=n[i];a.endLightbox(!0,a._lightbox)},t.contentWindow.lightbox.close=function(t){a.endLightbox(!1,a._lightbox)},t.contentWindow.lightbox.remove=function(){var t=a.locale.labels.confirm_deleting;
+
+(!t||confirm(t))&&(a.deleteEvent(a._lightbox_id),a._new_event=null),a.endLightbox(!0,a._lightbox)},1==t.contentWindow.document.getElementsByTagName("form").length)t.contentWindow.document.getElementsByTagName("form")[0].reset();else if(t.contentWindow.getValues&&t.contentWindow.setValues){var e=t.contentWindow.getValues();for(var n in e)e[n]="";t.contentWindow.setValues(e)}t.contentWindow.setValues&&t.contentWindow.setValues(a.getEvent(a._lightbox_id)),a.callEvent("onLightbox",[a._lightbox_id])});
+
+}});

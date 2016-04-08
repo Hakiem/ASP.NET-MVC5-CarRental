@@ -1,0 +1,575 @@
+﻿
+body
+{
+    background: #81a5be;
+    font-size: 75%;
+    font-family:Arial,sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #696969;
+}
+
+#header {
+    position: relative;
+    background-color: #617c8e;
+    min-width: 1200px;
+    padding: 27px 0;
+}
+
+#header h1 {
+    color: #d6ff80;
+    text-align:center;
+    font: normal 22px 'Ubuntu', Verdana, Arial, Tahoma;
+    margin: 0;
+}
+
+.hd_line
+{
+    height:1px;
+    background-image: url("./line.png");
+    width:100%;
+    margin:10px 0 20px;
+}
+.rent_title
+{
+   color: #d4f4fc;
+   font-size:18px;
+}
+.rent_small
+{
+   color: #d4e6fc;
+   font-size:10px;
+}
+
+.search_form  
+{
+    width:173px;
+    height:350px;
+    padding:15px 20px;
+    background-repeat:repeat-x;
+    background-image: url("./bg_form.png");
+}
+
+.message
+{
+    text-align:right;
+    color:White;
+    font-size:18px;
+    height:24px;
+    padding:5px;
+}
+.car_brand, .car_price
+{
+    border-left:none !important;
+    overflow:hidden;
+}
+.car_price
+{
+    color:Gray;
+    width:100%;
+    font-size:10px;
+    margin-top:2px;
+    text-align:center;
+}
+.car_brand
+{
+    white-space:nowrap;
+
+}
+
+
+
+.search_form input
+{
+    height:18px;
+}
+.search_form select
+{
+    height:19px;
+   vertical-align:top;
+}
+.search_form option
+{
+    vertical-align:middle;
+}
+.search_form select, .search_form    input
+{
+    font-size:11px;
+    width:170px;
+    padding: 0;
+    margin: 5px 0;
+}
+
+#submit
+{
+    width: 170px;
+    height: 23px;
+    border: 0 none;
+    background-color: #EFEFEF;
+    line-height: 23px;
+    margin-top: 3px;
+    font-weight:bold;
+}
+.search_form  
+{
+       border:none;
+      
+       color:#eee;
+}
+
+.search_form  .controls > div
+{
+    margin-top:9px;
+}
+
+.check_dates
+{
+    line-height:14px;
+    margin-bottom:-10px;
+    margin-top:0 !important;
+    margin-left: 40px;
+}
+.check_dates > input
+{
+    width:20px;
+    vertical-align:middle;
+}
+
+#DateFrom, #DateTo
+{
+    width:80px;
+}
+#TimeFrom, #TimeTo
+{
+    width:60px;
+}
+.date_calendar
+{
+    cursor:pointer;
+    height:16px;
+    left:-2px;
+    position:relative;
+    vertical-align:baseline;
+    top:1px;
+    width:15px;
+     
+}
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+/* you can specify a greater or lesser percentage for the 
+page width. Or, you can specify an exact pixel width. */
+.page
+{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#main
+{
+    padding: 30px 30px 15px 30px;
+    _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
+}
+
+
+.clear
+{
+    clear: both;
+}
+
+
+.page
+{
+    width:1200px;
+}
+      
+#main
+{
+    padding:0;
+}
+.minical_container
+{
+    position:absolute;
+    width:200px;
+}
+
+.dateLink
+{
+    left: 301px;
+    top: 16px;
+    position: relative;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.hideText
+{
+    font-size: 0;
+}
+
+.week_tab
+{
+    width: 40px;  
+}
+
+.week_tab_text
+{
+    margin-top: 2px;
+    font-size: 13px;
+}
+
+.download_button {
+    /*margin-left: 50px;*/
+    width: 298px;
+    display:inline-block;
+}
+
+.download_button a, .download_button a:hover {
+    text-decoration: none;
+}
+
+.download_button div {
+    height: 40px;
+    padding: 0 15px 0 60px;
+    font: normal 18px 'Roboto', Verdana, Arial;
+    line-height: 40px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    border: none;
+    background: url("http://scheduler-net.com/image/buttons/down-load.png") left center no-repeat;
+    background-color: rgb(126,203,15);
+    cursor: pointer;
+}
+
+.header_wrapper {
+    width:1200px;
+    text-align:right;
+    margin:0 auto;
+    position:relative;
+}
+
+.header_content {
+    position:relative; 
+    left:230px;
+    width:950px; 
+    white-space:nowrap;
+    text-align:left;
+}
+.header_title {
+    display:inline-block;
+    width:650px;
+}
+
+
+/* update footer */
+
+.footer {
+    position: relative;
+    background-color: #595959;
+    min-width: 1200px;
+    margin-top: 110px;
+}
+
+.top-line-footer {
+    position: relative;
+    background-color: #c9c9c9;
+    height: 8px;
+}
+
+.top-line-footer div {
+    width: 960px;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #c9c9c9;
+}
+
+.footer-inside {
+    position: relative;
+    width: 940px;
+    margin: 0 auto;
+    padding: 0 10px;
+    background-color: #595959;
+}
+
+.footer-inside ul li {
+    list-style: none;
+}
+
+.submenu-footer li {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    margin-left: 20px;
+}
+
+.submenu-footer li:first-child {
+    margin-left: 0;
+    margin-right: 80px;
+}
+
+.submenu-footer li a{
+    color: white;
+    text-decoration: none;
+    font: normal 14px 'Arimo', Verdana, Arial, Tahoma;
+}
+
+.submenu-footer li a:hover {
+    color: #56bcdf;    
+}
+
+/* social links */
+
+.clear-block {
+    position: relative;
+    overflow: hidden;
+}
+
+.submenu-footer,
+.soc-links-mini{
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+}
+
+.soc-links-mini li{
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    margin: 5px 0 0 3px;
+    list-style: none;
+}
+
+.soc-links-mini li:first-child{
+    margin-left: 0px;
+}
+
+.soc-links-mini li a{
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    width: 24px;
+    height: 24px;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+
+.soc-links-mini li .google-link {
+    background: url("./soc-icons-mini.png") 5px center no-repeat; 
+}
+
+.soc-links-mini li .google-link:hover {
+    background-color: #c94d2f; 
+}
+
+.soc-links-mini li .facebook-link {
+    background: url("./soc-icons-mini.png") -30px center no-repeat; 
+}
+
+.soc-links-mini li .facebook-link:hover {
+    background-color: #385594; 
+}
+
+.soc-links-mini li .twitter-link {
+    background: url("./soc-icons-mini.png") -63px center no-repeat; 
+}
+
+.soc-links-mini li .twitter-link:hover {
+    background-color: #00aced;
+}
+
+.soc-links-mini li .linkedin-link {
+    background: url("./soc-icons-mini.png") -96px center no-repeat;   
+}
+
+.soc-links-mini li .linkedin-link:hover {
+   background-color: #0172b0;
+}
+
+.soc-links-mini li .rss-link {
+    background: url("./soc-icons-mini.png") -130px center no-repeat;  
+}
+
+.soc-links-mini li .rss-link:hover {
+   background-color: #ff8c26;
+}
+
+
+#copyright {
+    width: 227px;
+	font: normal 12px 'Arimo', Verdana, Arial;
+	color: #b9b9b9;
+    text-align: left;
+    overflow: hidden;
+    position: absolute;
+    right: 0px;
+    bottom: 9px;
+}
+
+#copyright span {
+    display: block;
+}
+
+.dhxlogo-footer {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    width: 54px;
+    height: 32px;
+    margin-right: 10px;
+    background: url("./dhtmlx-logo.png") left top no-repeat;
+    float: left;
+}
+
+#parent {
+    display: table;
+    height: 100%;
+}
+
+#child {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+/*override some scheduler css*/
+
+#scheduler_container .dhx_cal_header div div {
+    border: none;
+}
+
+#scheduler_container .dhx_cal_data {
+    background-color: #fff;
+}
+
+#scheduler_container .dhx_cal_event_line {
+    background-image: none;
+    background-color: #FFAF4A;
+    font-size: 13px;
+    heighr: 100%;
+    color: white !important;
+}
+
+#scheduler_container .virtual_event {
+    /*background-color: #E4C49D;*/ 
+    opacity:0.8;
+    cursor:default;
+}
+#scheduler_container .virtual_event .dhx_event_resize {
+    display:none;        
+}
+    
+#scheduler_container .dhx_cal_event_line .dhx_event_resize {
+    background-image: none;
+}
+
+#scheduler_container .dhx_cal_light_wide .dhx_cal_lsection {
+    width: 130px;
+}
+
+#scheduler_container .dhx_matrix_scell.folder, #scheduler_container .dhx_data_table.folder .dhx_matrix_cell {
+    background-color: #E6E6E6;
+    cursor: pointer;
+}
+
+#scheduler_container .dhx_matrix_scell.folder .dhx_scell_expand {
+
+    display: none;
+}
+
+#scheduler_container .dhx_cal_header div div {
+    border-left: 1px solid #CECECE;
+}
+
+#scheduler_container .dhx_matrix_scell.folder {
+    border-right: 1px solid #CECECE;
+    background-color: white;
+}
+
+#scheduler_container .dhx_data_table.folder .dhx_matrix_cell {
+    border-right: 1px solid #CECECE;
+}
+
+#scheduler_container .dhx_matrix_scell .dhx_scell_level1 {
+    padding-left: 0px;
+}
+#scheduler_container .dhx_scell_name {
+    color: black;
+    font-weight: bold;
+    text-align: center !important;
+}
+#scheduler_container .dhx_matrix_scell.item .dhx_scell_name {
+    padding-left: 0px;
+}
+
+#scheduler_container .dhx_matrix_scell.folder .dhx_scell_name {
+    padding-left:15px;
+}
+
+#scheduler_container .dhx_matrix_cell div .dhx_matrix_scell div {
+    padding-left: 0px;
+}
+
+#scheduler_container .dhx_matrix_scell.folder .dhx_matrix_line .dhx_cal_event_line {
+    line-height: 17px;
+}
+
+#scheduler_container .dhx_data_table.folder_events .dhx_matrix_cell {
+    background-color: #E6E6E6;
+}
+
+#scheduler_container .dhx_cal_today_button {
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        padding: 0 5px;
+}
+
+#scheduler_container .dhx_cal_today_button { 
+        left:730px !important;
+}
+
+#scheduler_container .dhx_cal_event_clear {
+    background-image: none;
+    background-color: #FFAF4A;
+    font-size: 13px;
+    height:17px;
+    line-height:17px;
+
+    padding-left: 10px;
+       
+    color: white !important;
+    border:1px solid transparent;
+    border-top-right-radius: 9px;
+    border-bottom-right-radius: 9px;
+    border-top-left-radius: 9px;
+    border-bottom-left-radius: 9px;
+    font-family: Arial,sans-serif;
+} 
+
+#scheduler_container .dhx_month_link a {
+    color: black;
+}
+
+#scheduler_container .dhx_cal_container a, #scheduler_container .dhx_cal_container a:active, #scheduler_container .dhx_cal_container a:visited {
+    color:black;
+}
+.date_calendar {
+    left: 0px !important;
+    top: 3px !important;
+}
+#scheduler_container .dhx_cal_container .dhx_cal_event_line {
+    line-height:31px;
+}
+#scheduler_container .dhx_cal_container.dhx_scheduler_month .dhx_cal_event_line {
+    line-height:initial
+}
+
+.dhx_minical_popup {
+    margin-top: -25px;
+}

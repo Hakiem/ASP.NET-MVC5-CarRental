@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Rental">
+  <DataContextMoniker Name="/RentalDataContext" />
+  <nestedChildShapes>
+    <classShape Id="51f6fe72-cdbc-4fdc-bb68-c7c47a87282d" absoluteBounds="1, 1.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/RentalDataContext/Type" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fd3c3f53-e741-4dd7-a49a-a653e34b48cd" absoluteBounds="1.0150000000000001, 2.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a6632bbb-63a9-4435-b7eb-15a200a26af7" absoluteBounds="6.5, 1.75, 2, 2.5401025390625">
+      <DataClassMoniker Name="/RentalDataContext/Order" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4480a66f-6782-48b2-b82d-c6676dcdcf83" absoluteBounds="6.515, 2.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aa763181-34b3-4785-aa41-eb4e6669db9e" absoluteBounds="3.125, 2.75, 2, 1.9631982421875">
+      <DataClassMoniker Name="/RentalDataContext/Car" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e55fc318-20a7-4333-a316-0eb48b488b9e" absoluteBounds="3.1399999999999997, 3.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.125 : 3.52005126953125); (6.5 : 3.52005126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RentalDataContext/Car/Car_Order" />
+      <nodes>
+        <classShapeMoniker Id="aa763181-34b3-4785-aa41-eb4e6669db9e" />
+        <classShapeMoniker Id="a6632bbb-63a9-4435-b7eb-15a200a26af7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2 : 2.94399251302083); (2 : 3.73159912109375); (3.125 : 3.73159912109375)]" fixedFrom="Algorithm" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RentalDataContext/Type/Type_Car" />
+      <nodes>
+        <classShapeMoniker Id="51f6fe72-cdbc-4fdc-bb68-c7c47a87282d" />
+        <classShapeMoniker Id="aa763181-34b3-4785-aa41-eb4e6669db9e" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

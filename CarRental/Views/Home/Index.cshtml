@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "Car Rental Service";
+}
+@model  CarRental.Models.ViewModel
+
+@Html.Raw(Model.Scheduler.GenerateCSS())
+@Html.Raw(Model.Scheduler.GenerateJS())
+@if (!string.IsNullOrEmpty((string)ViewData["Message"]))
+{
+    <script>
+        dhtmlx.message("@ViewData["Message"]");
+    </script>
+}
+
+
+
+<script src="@Url.Content("~/Scripts/scripts.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.signalR-2.1.1.min.js")"></script>
+<script src="@Url.Content("~/signalr/hubs")" type="text/javascript"></script>
+
+<div style="height:620px">
+    <div class="message"> </div>
+    <div style="float:left; width:230px;height:100%;">
+
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { id = "myForm", name = "myForm" }))
+        {
+            <div class="search_form">
+
+                <div class="form_head">
+                    <span class="rent_title">Rent a Car</span><br />
+                    <span class="rent_small">with DHTMLX Scheduler .NET</span><br />
+                    <div class="hd_line"></div>
+                </div>
+                <div class="controls">
+                    <div>
+                        @Html.Label("Type", "Type:")<br />
+                        @Html.DropDownList("Type", null, new { onchange = "scheduler.updateFilters()" })
+                    </div>
+                    <div>
+                        @Html.Label("PriceRange", "Price:")<br />
+                        @Html.DropDownList("PriceRange", null, new { onchange = "scheduler.updateFilters()" })
+                    </div>
+                    <div>
+                        <span>Pick Up Date:</span><br />
+                        @Html.TextBox("DateFrom", null, new { onchange = "scheduler.updateFilters()" , onclick = "show_minical('DateFrom')"})
+                        <img src="@Url.Content("~/Content/calendar.gif")" class="date_calendar" onclick="show_minical('DateFrom');" />
+                        @Html.DropDownList("TimeFrom", null, new { onchange = "scheduler.updateFilters()" })
+                    </div>
+                    <div>
+                        <span>Drop Off Date:</span><br />
+                        @Html.TextBox("DateTo", null, new { onchange = "scheduler.updateFilters()", onclick = "show_minical('DateTo')"})
+                        <img src="@Url.Content("~/Content/calendar.gif")" class="date_calendar" onclick="show_minical('DateTo');" />
+                        @Html.DropDownList("TimeTo", null, new { onchange = "scheduler.updateFilters()" })
+                    </div>
+                    <div class="check_dates">
+                        <span>Only available: </span>
+                        @Html.CheckBox("DateFilter", true)
+                    </div>
+@if(ViewData["filtered"] != null){
+                    <input type="button" id="resetFilter" onclick="scheduler.resetForm()"  class="reset_form" value="Reset" style=" height: 25px; width: 70px; margin-left: 50px; margin-top: 10px;" />
+}                    
+                    <div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+    <div style="float:left; width:950px; height:100%">
+        @{
+            //calculate height of calendar container
+            int rowHeigth = (Model.Scheduler.Views[0] as DHTMLX.Scheduler.Controls.TimelineView).FolderDy;
+            int headerHeight = 83;
+            int showRows = (Model.CategoryCount >= 4) ? 4 : Model.CategoryCount;
+            int actualHeight = rowHeigth * Model.CategoryCount + headerHeight;
+            int maxHeight = headerHeight + showRows * rowHeigth;
+        }
+        <div id="scheduler_container" style="height:@(actualHeight < maxHeight ? actualHeight : maxHeight)px;">
+            @Html.Raw(Model.Scheduler.GenerateHTML())
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
